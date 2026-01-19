@@ -69,7 +69,6 @@ def compressed_stack_length(lst):
         if lst[i] == lst[i + 1]:
             lst.pop(i + 1)
             lst.pop(i)
-            i-=1
     print(len(lst))
 
 

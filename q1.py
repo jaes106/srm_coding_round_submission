@@ -52,21 +52,22 @@ def first_stable_character(s):
         >>> first_stable_character("a")
         None
     """
-    has_stable_char = False
-    count = Counter(s)
-    for val in count.values():
-        if val > 1:
-            has_stable_char = True
-            break
-    if not has_stable_char:
-        return print("None")
-    for c , value in count.items():
-        if value == 1:
-        continue
-
-
-# if __name__ == "__main__":
-#     # Test your solution here
-#     print(first_stable_character("abccba"))  # Should print: c
-#     print(first_stable_character("abc"))     # Should print: None
-#     print(first_stable_character("a"))       # Should print: None
+    # TODO: Implement your solution here
+    length = len(s)
+    i = 0
+    while i < length:
+        ch = s[i]
+        j = i
+        while j < length and s[j] == ch:
+            j += 1
+        group_len = j - i
+        if group_len >= 2:
+            if ch not in s[j:]:
+                return ch
+        i = j
+    return None
+if __name__ == "__main__":
+    # Test your solution here
+    print(first_stable_character("abccba"))  # Should print: c
+    print(first_stable_character("abc"))     # Should print: None
+    print(first_stable_character("a"))       # Should print: None
