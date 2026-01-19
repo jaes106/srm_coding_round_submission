@@ -1,3 +1,4 @@
+from collections import Counter
 """
 Q1: Stable Character
 
@@ -51,12 +52,21 @@ def first_stable_character(s):
         >>> first_stable_character("a")
         None
     """
-    # TODO: Implement your solution here
-    pass
+    has_stable_char = False
+    count = Counter(s)
+    for val in count.values():
+        if val > 1:
+            has_stable_char = True
+            break
+    if not has_stable_char:
+        return print("None")
+    for c , value in count.items():
+        if value == 1:
+        continue
 
 
-if __name__ == "__main__":
-    # Test your solution here
-    print(first_stable_character("abccba"))  # Should print: c
-    print(first_stable_character("abc"))     # Should print: None
-    print(first_stable_character("a"))       # Should print: None
+# if __name__ == "__main__":
+#     # Test your solution here
+#     print(first_stable_character("abccba"))  # Should print: c
+#     print(first_stable_character("abc"))     # Should print: None
+#     print(first_stable_character("a"))       # Should print: None
